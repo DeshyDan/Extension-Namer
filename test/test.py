@@ -3,6 +3,7 @@ import json
 import os
 from extensionNamer import extensionNamer
 
+
 class TestGetName(unittest.TestCase):
     def setUp(self):
         with open("extensionNamer/extensionNames.json", "w") as f:
@@ -27,10 +28,11 @@ class TestGetName(unittest.TestCase):
         self.assertEqual(actual_name, expected_name)
 
     def test_getName_withFilePath(self):
-        extension = "test.txt"
-        expected_name = "Text Document"
+        extension = "README.md"
+        expected_name = "Unknown"
         actual_name = extensionNamer.getName(extension)
         self.assertEqual(actual_name, expected_name)
+
 
 if __name__ == "__main__":
     unittest.main()
