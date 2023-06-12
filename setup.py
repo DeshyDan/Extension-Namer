@@ -3,9 +3,10 @@ from pathlib import Path
 
 setuptools.setup(
     name="extensionNamer",
-    version="1.0.0",
+    version='{{VERSION_PLACEHOLDER}}',
     author="Deshy Dan",
     long_description=Path("README.md").read_text(),
+    url = "https://github.com/DeshyDan/Extension-Namer",
     packages=setuptools.find_packages(),
     include_package_data=True,
     package_data={"extensionNamer": ["extensionNamer/extensionNames.json"]}
