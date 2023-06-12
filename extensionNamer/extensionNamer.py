@@ -8,27 +8,22 @@ def _loadExtensionNames():
 
      @return A list of extension
     """
-    with open("extensionNamer/extensionNames.json") as f:
-        extensionNames = json.load(f)
+    module_dir = os.path.dirname(__file__)
+    file_path = os.path.join(module_dir, 'extensionNames.json')
+    with open(file_path, 'r') as jfile:
+        extensionNames = json.load(jfile)
     return extensionNames
 
 
 def getName(extension):
     """
-     Returns the name of the extension. If the extension is not found in the list of extensions, " Unknown " is returned.
+    Returns the name of the extension. If the extension is not found in the list of extensions, "Unknown" is returned.
 
+    @param extension - The extension to get the name of. This can be a file path or just the extension itself.
 
-     @param extension - The extension to get the name of. This can be a file path or just the extension itself.
-
-     @return The name of the extension or " Unknown " if not found in the list of extensions or the extension does not exist.
+    @return The name of the extension or "Unknown" if not found in the list of extensions.
     """
     extensionNames = _loadExtensionNames()
-    # Returns the name of the file extension.
-    if os.path.isfile(extension):
-        extension = os.path.splitext(extension)[1]
-        return extensionNames[extension]
+    extension = os.path.splitext(extension)[1]  
+    return extensionNames.get(extension, "Unknown")
 
-    elif extension in extensionNames:
-        return extensionNames[extension]
-    else:
-        return "Unknown"
