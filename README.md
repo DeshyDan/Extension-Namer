@@ -1,6 +1,25 @@
 # Extension Namer
 
+[![PyPI version](https://badge.fury.io/py/extensionNamer.svg)](https://badge.fury.io/py/extensionNamer)
+[![Downloads](https://pepy.tech/badge/extensionnamer)](https://pepy.tech/project/extensionNamer)
+
 Python module that returns the name of an extension from a file path, extension or file name.
+
+## Installation
+
+```bash
+pip install extensionNamer
+```
+
+## Usage
+
+```python
+from extensionNamer import extensionNamer
+
+extensionNamer.getName("file.txt") # returns "Plain Text File"        
+
+```
+
 This module can used in cases like:
 
 - **File Management**: You can use the script to automatically retrieve and display the full names of file extensions when managing files or working with file systems. This can be helpful when organizing, renaming, or categorizing files.
